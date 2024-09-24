@@ -1,0 +1,27 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  .btn-primary {
+    padding: 1rem 1.5rem;
+    background-color: #8056eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #5b24e7;
+    }
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
