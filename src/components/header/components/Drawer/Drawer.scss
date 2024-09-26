@@ -14,9 +14,13 @@
   left: 0;
   background-color: #8056eb; 
   overflow-x: hidden; 
-  transition: 0.3s; 
+  transition: width 0.3s ease-in-out;
   padding-top: 60px;
-
+  
+  * {
+    transition:  0.3s opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
   a {
     padding: 10px 15px;
     text-decoration: none;
@@ -31,6 +35,10 @@
   }
   &.open {
     width: 250px;
+
+    * {
+      opacity: 1;
+    }
   }
 }
 

@@ -2,7 +2,11 @@
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
+  line-height: 1;
 
+  * {
+    box-sizing: border-box;
+  }
   .btn-primary {
     padding: 1rem 1.5rem;
     background-color: #8056eb;
@@ -12,6 +16,12 @@
     font-size: 1rem;
     cursor: pointer;
   
+    &.round {
+      border-radius: 50%;
+    }
+    &.small {
+      padding: 0.5rem 1rem;
+    }
     &:hover {
       background-color: #5b24e7;
     }
@@ -22,6 +32,11 @@
   a {
     &:hover {
       text-decoration: underline;
+    }
+  }
+  h1 {
+    @media (max-width: 768px) {
+      font-size: 2rem;
     }
   }
 }
