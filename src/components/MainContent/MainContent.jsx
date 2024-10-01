@@ -3,8 +3,8 @@ import './MainContent.scss';
 import { FaScrewdriverWrench, FaTruck, FaBrush, FaBucket, FaLightbulb } from "react-icons/fa6";
 import { PiPipeFill } from "react-icons/pi";
 import SearchBlock from './Components/SearchBlock/SearchBlock' ;
-import CategoryCard from './Components/CategoryCard/CategoryCard' ;
-import ServiceCard from './Components/ServiceCard/ServiceCard' ;
+import CategoryCard from '../category/CategoryCard/CategoryCard' ;
+import BusinessCard from '../business/BusinessCard/BusinessCard' ;
 
 const categories = [
   { name: "cleaning", icon: FaBucket, color: "#b12fde" },
@@ -15,7 +15,7 @@ const categories = [
   { name: "electric", icon: FaLightbulb, color: "#1f71c5" },
 ];
 
-const services = [
+const businesses = [
   {
     "_id": "6659ad22f8aa007781ea2b0b",
     "name": "Išsivalyk pats",
@@ -79,8 +79,8 @@ const MainContent = () => {
       </div>
       <h2 className='services-title'>Popular businesses</h2>
       <div className='services-list'>
-        {services.map((service) => (
-          <ServiceCard key={service.name} service={service} />
+        {businesses.map((business) => (
+          <BusinessCard key={business.name} business={business} />
         ))}
       </div>
     </main>

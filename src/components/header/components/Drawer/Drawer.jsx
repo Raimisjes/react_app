@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Drawer.scss';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Drawer = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,10 @@ const Drawer = () => {
                 <a href="#" className="close-btn" onClick={toggleDrawer}>
                     <AiOutlineClose />
                 </a>
-                <a href="#login">Login / Sign Up</a>
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#about">About Us</a>
+                <Link to={`/login`}>Login / Sign Up</Link>
+                <Link to={`/`}>Home</Link>
+                <Link to={`/services`}>Services</Link>
+                <Link to={`/aboutus`}>About us</Link>
             </div>
         </>
     );
