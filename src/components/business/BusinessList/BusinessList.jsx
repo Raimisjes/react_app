@@ -1,9 +1,36 @@
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import BusinessCard from "../BusinessCard/BusinessCard";
 import "./BusinessList.scss";
 
 const BusinessList = ({ categoryName }) => {
-  //const { data } = useBusinesses();
+  const [favoriteIds, setFavoriteIds] = useState([]);
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favoriteBusinesses');
+    if (storedFavorites) {
+      setFavoriteIds(JSON.parse(storedFavorites));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (favoriteIds.length > 0) {
+      localStorage.setItem('favoriteBusinesses', JSON.stringify(favoriteIds));
+    } else {
+      localStorage.removeItem('favoriteBusinesses');
+    }
+  }, [favoriteIds]);
+
+  const toggleFavorite = (businessId) => {
+    setFavoriteIds((prevFavoriteIds) => {
+      if (prevFavoriteIds.includes(businessId)) {
+        return prevFavoriteIds.filter((id) => id !== businessId);
+      } else {
+        return [...prevFavoriteIds, businessId];
+      }
+     });
+  };
+
   const businesses = [
     {
       "_id": "6659ad22f8aa007781ea2b0b",
@@ -60,9 +87,14 @@ const BusinessList = ({ categoryName }) => {
     : businesses;
 
   return (
-    <div className="business-list-search">
+    <div className="business-list">
       {filteredBusiness.map((business) => (
-        <BusinessCard key={business._id} business={business} />
+        <BusinessCard
+          key={business._id}
+          business={business}
+          isFavorite={favoriteIds.includes(business._id)}
+          toggleFavorite={toggleFavorite}
+        />
       ))}
     </div>
   );

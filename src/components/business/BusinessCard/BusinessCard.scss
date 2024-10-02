@@ -51,5 +51,20 @@
       margin: 1rem 0rem;
       color: #a8a8a8;
     }
+    .buttons-holder {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+
+      .toggle-favorite {
+        cursor: pointer;
+        
+        > *{
+          font-size: 30px;
+        }
+      }
+    }
   }
 }
