@@ -74,9 +74,23 @@ form.login-form, form.register-form {
     text-align: center;
     margin-bottom: 2rem;
   }
-  input {
+  .form-input {
     margin-bottom: 1rem;
     width: 100%;
+
+    input {
+      &.input-error {
+        border: 1px solid #961515;
+      }
+    }
+    .error-message {
+      font-size: 0.7rem;
+      color: #961515;
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin: 4px 0 0 0;
+    }
   }
   .link {
     margin-top: 2rem;

@@ -27,6 +27,27 @@
         }
       }
     }
+    .logged-in-block {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      gap: 8px;
+
+      .email {
+        background-color: #e5ddfb;
+        padding: 5px 15px;
+        border-radius: 10px;
+        color: #8056eb;
+      }
+      svg {
+        font-size: 30px;
+        cursor: pointer;
+
+        &:hover {
+          color: #8056eb;
+        }
+      }
+    }
     @media (max-width: 1024px) {
       padding: 1rem 2rem;
     }
@@ -38,7 +59,7 @@
           display: none;
         }
       }
-      .login {
+      .login, > .logged-in-block {
         display: none;
       }
     }
