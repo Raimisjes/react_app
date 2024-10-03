@@ -1,0 +1,36 @@
+.vertical-category-list {
+  > h2 {
+    text-align: left;
+    color: #8056eb;
+    font-size: 1.4rem;
+    margin: 0 0 2rem 0;
+  }
+  > div {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1rem;
+
+    .category-item {
+      width: 100%;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      height: auto;
+      border: 2px solid #e6e6e6;
+      border-radius: 1rem;
+      transition: all 0.2s ease-in-out;
+
+      &:hover, &.active {
+        background-color: #f2eefd;
+        border-color: #beaaf5;
+        color: #8056eb;
+      }
+    }
+    @media (max-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 568px) {
+      grid-template-columns:  1fr;
+    }
+  }
+}

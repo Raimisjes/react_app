@@ -1,0 +1,67 @@
+.toggle-drawer {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.drawer {
+  height: 100%;
+  width: 0; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #8056eb; 
+  overflow-x: hidden; 
+  transition: width 0.3s ease-in-out;
+  padding-top: 60px;
+  
+  * {
+    transition:  0.3s opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+  a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+  
+    &:hover {
+      color: white;
+    }
+  }
+  .logged-in-block {
+    justify-content: center;
+
+    .email {
+      color: #FFF;
+      background-color: transparent;
+    }
+    svg {
+      color: #FFF;
+
+      &:hover {
+        color: #FFF;
+      }
+    }
+  }
+  &.open {
+    width: 250px;
+
+    * {
+      opacity: 1;
+    }
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 36px;
+  text-decoration: none;
+  color: white;
+}

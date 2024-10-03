@@ -1,0 +1,27 @@
+.category-item {
+  width: 160px;
+  min-width: 160px;
+  height: 120px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2eefd;
+  border-radius: .5rem;
+  padding: 1rem;
+  transition: .3s;
+  cursor: pointer;
+  gap: 1rem;
+
+  &:hover {
+    background-color: #f7f4fd;
+  }
+  p {
+    color: #9977ef;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+    line-height: 1.5;
+  }
+}  
