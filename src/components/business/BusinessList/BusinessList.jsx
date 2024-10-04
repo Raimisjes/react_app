@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import BusinessCard from "../BusinessCard/BusinessCard";
-import "./BusinessList.scss";
+import styles from "./BusinessList.module.scss";
 
-const BusinessList = ({ categoryName }) => {
+const BusinessList = ({ categoryName, businessesInRow = 4 }) => {
   const [favoriteIds, setFavoriteIds] = useState([]);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const BusinessList = ({ categoryName }) => {
     : businesses;
 
   return (
-    <div className="business-list">
+    <div className={`${styles.businessList} col-${businessesInRow}`}>
       {filteredBusiness.map((business) => (
         <BusinessCard
           key={business._id}
@@ -102,6 +102,7 @@ const BusinessList = ({ categoryName }) => {
 
 BusinessList.propTypes = {
   categoryName: PropTypes.string,
+  businessesInRow: PropTypes.string,
 };
 
 export default BusinessList;

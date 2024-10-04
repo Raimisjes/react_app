@@ -10,40 +10,28 @@ main {
       color: #8056eb;
     }
   }
-  p.subtitle {
+  .subtitle {
     color: #a8a8a8;
     font-size: 1.5rem;
     padding: 1rem;
     margin: 0;
   }
-  .categories-holder {
+  .categoriesHolder {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     margin-top: 2rem;
     gap: 1rem;
   }
-  .services-title {
+  .servicesTitle {
     text-align: left;
     font-size: 1.2rem;
     margin: 2rem 0;
   }
-  .index-business-list-holder .business-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-
-    @media (max-width: 1100px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (max-width: 568px) {
-      grid-template-columns:  1fr;
-    }
-  }
-  @media (max-width: 1024px) {
+  @include for-large {
     padding: 6rem 2rem 1rem 2rem;
   }
-  @media (max-width: 768px) {
+  @include for-medium {
     padding: 6rem 1rem 1rem 1rem;
   }
 }

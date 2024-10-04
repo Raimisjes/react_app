@@ -1,17 +1,17 @@
 main {
-  &.categories-search-holder {
+  &.categoriesSearchHolder {
     display: grid;
     grid-template-columns: 3fr 7fr;
     gap: 30px;
 
-    .business-list-holder {
+    .businessListHolder {
       > h2 {
         text-align: left;
         font-size: 1.4rem;
         margin: 0 0 2rem 0;
       }
     }
-    @media (max-width: 768px) {
+    @include for-medium {
       grid-template-columns: 1fr;
     }
   }

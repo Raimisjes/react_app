@@ -1,4 +1,4 @@
-.category-item {
+.categoryItem {
   width: 160px;
   min-width: 160px;
   height: 120px;
@@ -23,5 +23,20 @@
     text-transform: capitalize;
     margin: 0;
     line-height: 1.5;
+  }
+  &.horizontal {
+    width: 100%;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    height: auto;
+    border: 2px solid #e6e6e6;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover, &.active {
+      background-color: #f2eefd;
+      border-color: #beaaf5;
+      color: #8056eb;
+    }
   }
 }  

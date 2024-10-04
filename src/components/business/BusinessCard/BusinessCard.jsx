@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './BusinessCard.scss';
+import styles from './BusinessCard.module.scss';
 import { GoHeart, GoHeartFill } from "react-icons/go";
 
 const BusinessCard = ({business, isFavorite, toggleFavorite}) => {
@@ -8,18 +8,18 @@ const BusinessCard = ({business, isFavorite, toggleFavorite}) => {
   };
 
   return (
-    <div className='service-card'>
+    <div className={styles.serviceCard}>
       <img src={business.imageUrls} />
-      <div className='service-info'>
-        <div className='categories'>
+      <div className={styles.serviceInfo}>
+        <div className={styles.categories}>
           <span>{business.category}</span>
         </div>
         <h6>{business.name}</h6>
-        <p className='provider'>{business.contactPerson}</p>
-        <p className='address'>{business.address}</p>
-        <div className='buttons-holder'>
+        <p className={styles.provider}>{business.contactPerson}</p>
+        <p className={styles.address}>{business.address}</p>
+        <div className={styles.buttonsHolder}>
           <button className='btn-primary small'>Book now</button>
-          <a className='toggle-favorite' onClick={() => toggleFavorite(business._id)}>{Icon(business._id)}</a>
+          <a className={styles.toggleFavorite} onClick={() => toggleFavorite(business._id)}>{Icon(business._id)}</a>
         </div>
       </div>
     </div>

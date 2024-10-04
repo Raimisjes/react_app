@@ -1,0 +1,21 @@
+.verticalCategoryList {
+  > h2 {
+    text-align: left;
+    color: #8056eb;
+    font-size: 1.4rem;
+    margin: 0 0 2rem 0;
+  }
+  > div {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1rem;
+
+    @include for-medium {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @include for-small {
+      grid-template-columns:  1fr;
+    }
+  }
+}

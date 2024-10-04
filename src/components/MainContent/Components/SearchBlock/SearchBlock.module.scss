@@ -1,4 +1,4 @@
-.search-holder {
+.searchHolder {
   display: flex;
   justify-content: center;
   padding: 2rem;
@@ -18,7 +18,7 @@
       width: 100%;
       font-size: 1rem;
     }
-    .search.btn-primary {
+    .search {
       max-width: 64px;
       min-width: 64px;
       max-height: 64px;
@@ -30,19 +30,19 @@
     }
    
   }
-  @media (max-width: 1024px) {
+  @include for-large {
     form {
       width: 50%;
     }
   }
-  @media (max-width: 768px) {
+  @include for-medium {
     padding: 1rem 0;
     
     form {
       width: 80%;
     }
   }
-  @media (max-width: 420px) {
+  @include for-small {
     form {
       width: 100%;
     }

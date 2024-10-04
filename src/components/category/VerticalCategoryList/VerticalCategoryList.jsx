@@ -1,7 +1,7 @@
 import CategoryCard from "../CategoryCard/CategoryCard";
 import { FaScrewdriverWrench, FaTruck, FaBrush, FaBucket, FaLightbulb } from "react-icons/fa6";
 import { PiPipeFill } from "react-icons/pi";
-import './VerticalCategoryList.scss';
+import styles from './VerticalCategoryList.module.scss';
 
 const VerticalCategoryList = () => {
   const categories = [
@@ -14,11 +14,11 @@ const VerticalCategoryList = () => {
   ];
 
   return (
-    <div className="vertical-category-list">
+    <div className={styles.verticalCategoryList}>
       <h2>Categories</h2>
       <div>
         {categories.map((category) => (
-          <CategoryCard key={category.name} category={category} />
+          <CategoryCard key={category.name} category={category} layout="horizontal" />
         ))}
       </div>
     </div>

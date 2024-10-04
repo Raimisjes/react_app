@@ -1,5 +1,5 @@
 
-import './MainContent.scss';
+import styles from './MainContent.module.scss';
 import { FaScrewdriverWrench, FaTruck, FaBrush, FaBucket, FaLightbulb } from "react-icons/fa6";
 import { PiPipeFill } from "react-icons/pi";
 import SearchBlock from './Components/SearchBlock/SearchBlock' ;
@@ -20,14 +20,14 @@ const MainContent = () => {
   return (
     <main>
       <h1>Find Home <span>Service/Repair</span><br/>Near You</h1>
-      <p className="subtitle">Explore Best Home Service & Repair near you</p>
+      <p className={styles.subtitle}>Explore Best Home Service & Repair near you</p>
       <SearchBlock />
-      <div className='categories-holder'>
+      <div className={styles.categoriesHolder}>
         {categories.map((category) => (
           <CategoryCard key={category.name} category={category} />
         ))}
       </div>
-      <h2 className='services-title'>Popular businesses</h2>
+      <h2 className={styles.servicesTitle}>Popular businesses</h2>
       <div className='index-business-list-holder'>
        <BusinessList />
       </div>

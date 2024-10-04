@@ -1,13 +1,13 @@
 
-import './SearchBlock.scss';
+import styles from './SearchBlock.module.scss';
 import { AiOutlineSearch } from "react-icons/ai";
 
 const SearchBlock = () => {
   return (
-    <div className='search-holder'>
+    <div className={styles.searchHolder}>
       <form>
         <input type="text" name="search" placeholder="Search" />
-        <button className="btn-primary search round"><AiOutlineSearch /></button>
+        <button className={`btn-primary round ${styles.search}`}><AiOutlineSearch /></button>
       </form>
     </div>
   );
