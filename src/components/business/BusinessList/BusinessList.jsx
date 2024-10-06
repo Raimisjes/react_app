@@ -1,48 +1,20 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
 import BusinessCard from "../BusinessCard/BusinessCard";
 import styles from "./BusinessList.module.scss";
+import useLocalStorage from '../../../hooks/useLocalStorage';
 
-const BusinessList = ({ categoryName, businessesInRow = 4 }) => {
-  const [favoriteIds, setFavoriteIds] = useState([]);
-
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem('favoriteBusinesses');
-    if (storedFavorites) {
-      setFavoriteIds(JSON.parse(storedFavorites));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (favoriteIds.length > 0) {
-      localStorage.setItem('favoriteBusinesses', JSON.stringify(favoriteIds));
-    } else {
-      localStorage.removeItem('favoriteBusinesses');
-    }
-  }, [favoriteIds]);
-
-  const toggleFavorite = (businessId) => {
-    setFavoriteIds((prevFavoriteIds) => {
-      if (prevFavoriteIds.includes(businessId)) {
-        return prevFavoriteIds.filter((id) => id !== businessId);
-      } else {
-        return [...prevFavoriteIds, businessId];
-      }
-     });
-  };
-
-  const businesses = [
-    {
-      "_id": "6659ad22f8aa007781ea2b0b",
-      "name": "Išsivalyk pats",
-      "about": "Privatūs objektai",
-      "address": "Kauno g. 27, Vilnius",
-      "category": "cleaning",
-      "contactPerson": "Tadas Gedvilas",
-      "email": "email@example.com",
-      "imageUrls": [
-          "https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-      ]
+const businesses = [
+  {
+    "_id": "6659ad22f8aa007781ea2b0b",
+    "name": "Išsivalyk pats",
+    "about": "Privatūs objektai",
+    "address": "Kauno g. 27, Vilnius",
+    "category": "cleaning",
+    "contactPerson": "Tadas Gedvilas",
+    "email": "email@example.com",
+    "imageUrls": [
+        "https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
+    ]
   },
   {
       "_id": "6659ad22f8aa007781ea2b0c",
@@ -80,7 +52,20 @@ const BusinessList = ({ categoryName, businessesInRow = 4 }) => {
           "https://grainger-prod.adobecqms.net/content/dam/grainger/gus/en/public/digital-tactics/know-how/hero/kh-qualified-vs-unqualified-electrical-workers_feat.jpg"
       ]
   }
-  ];
+];
+
+const BusinessList = ({ categoryName, businessesInRow = 4 }) => {
+  const { localStorageValue, setLocalStorage } = useLocalStorage('favoriteBusinesses');
+
+  const toggleFavorite = (businessId) => {
+    setLocalStorage((prevFavoriteIds) => {
+      if (prevFavoriteIds.includes(businessId)) {
+        return prevFavoriteIds.filter((id) => id !== businessId);
+      } else {
+        return [...prevFavoriteIds, businessId];
+      }
+     });
+  };
 
   const filteredBusiness = categoryName
     ? businesses.filter((business) => business.category === categoryName)
@@ -92,7 +77,7 @@ const BusinessList = ({ categoryName, businessesInRow = 4 }) => {
         <BusinessCard
           key={business._id}
           business={business}
-          isFavorite={favoriteIds.includes(business._id)}
+          isFavorite={localStorageValue.includes(business._id)}
           toggleFavorite={toggleFavorite}
         />
       ))}
@@ -102,7 +87,7 @@ const BusinessList = ({ categoryName, businessesInRow = 4 }) => {
 
 BusinessList.propTypes = {
   categoryName: PropTypes.string,
-  businessesInRow: PropTypes.string,
+  businessesInRow: PropTypes.number,
 };
 
 export default BusinessList;

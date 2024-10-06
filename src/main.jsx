@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import routes from "./routes/routes";
 import HomePage from './pages/HomePage/HomePage'
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage'
 import ServicesPage from './pages/ServicesPage/ServicesPage'
@@ -15,30 +16,31 @@ import './App.scss'
 import './index.css'
 
 const errorElement = <ErrorPage />;
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: routes.HOME,
     element: <HomePage />,
     errorElement,
   },
   {
-    path: "/aboutus",
+    path: routes.ABOUT_US,
     element: <AboutUsPage />,
   },
   {
-    path: "/services",
+    path: routes.SERVICES,
     element: <ServicesPage />,
   },
   {
-    path: "/login",
+    path: routes.LOGIN,
     element: <LoginPage />,
   },
   {
-    path: "/register",
+    path: routes.REGISTER,
     element: <RegisterPage />,
   },
   {
-    path: "/search/:category",
+    path: routes.SEARCH_CATEGORY,
     element: <CategorySearchPage />,
   },
 ]);
