@@ -1,0 +1,12 @@
+.business-list {
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  gap: 1rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 568px) {
+    grid-template-columns:  1fr;
+  }
+}
